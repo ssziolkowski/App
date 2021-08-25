@@ -1,0 +1,25 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-3">
+            <h3 class="display-6 text-center">Upload file</h3>
+            <div class="card mt-4">
+                <form method="POST" class="m-5" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <label class="form-label" for="customFile">Default file input example</label>
+                    <input type="file" class="form-control mb-2" accept=".txt" name="file" id="file">
+                    <input type="submit" class="btn btn-primary mt-4" name="submit" value="Add">                   
+                </form>
+                {% if output %}
+                <div class="card-text">
+                    <div class="text-center mx-5 mb-5"> 
+                        {{output}} 
+                    </div>               
+                </div>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock content%}
